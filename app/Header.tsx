@@ -18,9 +18,10 @@ function Header() {
           <Image
             src="/assets/logo.webp"
             alt="Home"
-            width={180}
-            height={90}
-            className="object-contain"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-44 h-auto"
           />
         </Link>
         <ul className="h-16 flex items-center space-x-20 py-2 font-bold">
