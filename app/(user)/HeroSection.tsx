@@ -32,9 +32,10 @@ const HeroSection = () => {
           <Image
             src="/assets/images/hero-image.webp"
             alt="Hero Image"
-            width={581}
-            height={653}
-            className="object-contain"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-1/2 h-auto"
           />
         </div>
       </div>
@@ -44,9 +45,10 @@ const HeroSection = () => {
           <Image
             src="/assets/icons/place-icon.svg"
             alt=""
-            width={24}
-            height={24}
-            className="object-contain"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-6 h-6"
           />
         </button>
         <div className="w-1 h-10 rounded-xl bg-c-primary-600/30" />
@@ -55,9 +57,10 @@ const HeroSection = () => {
           <Image
             src="/assets/icons/calendar-search-icon.svg"
             alt=""
-            width={24}
-            height={24}
-            className="object-contain"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-6 h-6"
           />
         </button>
         <div className="w-1 h-10 rounded-xl bg-c-primary-600/30" />
@@ -66,9 +69,10 @@ const HeroSection = () => {
           <Image
             src="/assets/icons/bus-icon.svg"
             alt=""
-            width={24}
-            height={24}
-            className="object-contain"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-6 h-6"
           />
         </button>
         <Button
@@ -80,9 +84,10 @@ const HeroSection = () => {
           <Image
             src="/assets/icons/search-icon.svg"
             alt=""
-            width={24}
-            height={24}
-            className="object-contain"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-6 h-6"
           />
           <span>Search</span>
         </Button>
