@@ -5,7 +5,6 @@ import Button from "@/components/buttons/Button";
 
 function Header() {
   const routeMenu = [
-    { value: "Home", href: "/" },
     { value: "Destinations", href: "/" },
     { value: "Blog", href: "/" },
     { value: "About", href: "/" },
@@ -24,7 +23,7 @@ function Header() {
             className="object-contain"
           />
         </Link>
-        <ul className="h-16 flex items-center space-x-20 py-2 px-4 md:px-16 font-bold">
+        <ul className="h-16 flex items-center space-x-20 py-2 font-bold">
           {routeMenu.map((route, index) => (
             <li key={index}>
               <Link className="block py-2 text-[#816D87]" href={route.href}>
@@ -34,12 +33,12 @@ function Header() {
           ))}
           <li>
             <Button
-              width="w-28"
+              width="w-36"
               height="h-10"
               padding="px-5"
               color="text-[#fffbeb]"
               background="bg-[#ffa57b]">
-              Book Trip
+              Login | signup
             </Button>
           </li>
         </ul>
