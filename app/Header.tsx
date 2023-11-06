@@ -1,14 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import Button from "@/components/buttons/Button";
+import Button from "@/common/buttons/Button";
 
 function Header() {
   const routeMenu = [
     { value: "Destinations", href: "/" },
     { value: "Blog", href: "/" },
-    { value: "About", href: "/" },
-    { value: "Contact", href: "/" },
   ];
 
   return (

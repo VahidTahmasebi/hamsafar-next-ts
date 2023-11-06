@@ -10,3 +10,18 @@ body {
   min-height: 100vh;
   user-select: none;
 }
+
+@layer components {
+  .wh-full--class {
+    @apply w-full h-full;
+  }
+  .icon--class {
+    @apply w-6 h-6;
+  }
+  .cart--class {
+    @apply absolute space-y-1 text-lg font-bold;
+  }
+  .cart__text--class {
+    @apply py-1 px-2 bg-[rgba(255,255,255,0.8)];
+  }
+}
