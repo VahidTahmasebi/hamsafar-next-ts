@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Button from "@/components/buttons/Button";
+import Button from "@/common/buttons/Button";
 
 const HeroSection = () => {
   return (
@@ -48,7 +48,7 @@ const HeroSection = () => {
             width="0"
             height="0"
             sizes="100vw"
-            className="w-6 h-6"
+            className="icon--class"
           />
         </button>
         <div className="w-1 h-10 rounded-xl bg-c-primary-600/30" />
@@ -60,7 +60,7 @@ const HeroSection = () => {
             width="0"
             height="0"
             sizes="100vw"
-            className="w-6 h-6"
+            className="icon--class"
           />
         </button>
         <div className="w-1 h-10 rounded-xl bg-c-primary-600/30" />
@@ -72,7 +72,7 @@ const HeroSection = () => {
             width="0"
             height="0"
             sizes="100vw"
-            className="w-6 h-6"
+            className="icon--class"
           />
         </button>
         <Button
@@ -87,7 +87,7 @@ const HeroSection = () => {
             width="0"
             height="0"
             sizes="100vw"
-            className="w-6 h-6"
+            className="icon--class"
           />
           <span>Search</span>
         </Button>

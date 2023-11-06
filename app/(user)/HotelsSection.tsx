@@ -31,7 +31,7 @@ const HotelsSection = (): JSX.Element => {
             clickable: true,
           }}
           // modules={[Pagination]}
-          className="w-full h-full rounded-3xl">
+          className="wh-full--class rounded-3xl">
           {hotels?.map((hotel: Hotel) => (
             <SwiperSlide key={hotel.id} className="w-fit relative px-3">
               <Image
@@ -40,10 +40,10 @@ const HotelsSection = (): JSX.Element => {
                 width="0"
                 height="0"
                 sizes="100vw"
-                className="w-full h-full block rounded-3xl object-cover"
+                className="wh-full--class block rounded-3xl object-cover"
               />
-              <div className="max-w-[17rem] absolute top-4 right-7 space-y-1 text-lg font-bold text-left">
-                <div className="py-1 px-2 bg-[rgba(255,255,255,0.8)] rounded-xl flex flex-col items-center">
+              <div className="cart--class max-w-[7rem] top-4 right-7">
+                <div className="cart__text--class rounded-xl grid place-items-center">
                   <Image
                     src="/assets/icons/star-icon.svg"
                     alt=""
@@ -59,11 +59,11 @@ const HotelsSection = (): JSX.Element => {
                   </span>
                 </div>
               </div>
-              <div className="max-w-[17rem] absolute bottom-4 left-7 space-y-1 text-lg font-bold text-left">
-                <span className="py-1 px-2 bg-[rgba(255,255,255,0.8)] rounded-t-xl">
+              <div className="cart--class max-w-[17rem] bottom-4 left-7 text-left">
+                <span className="cart__text--class rounded-t-xl">
                   ${hotel.price}
                 </span>
-                <h5 className="py-1 px-2 bg-[rgba(255,255,255,0.8)] rounded-b-xl rounded-tr-xl">
+                <h5 className="cart__text--class rounded-b-xl rounded-tr-xl">
                   {hotel.name}
                 </h5>
               </div>
