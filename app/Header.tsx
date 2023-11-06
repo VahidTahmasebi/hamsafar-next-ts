@@ -16,6 +16,7 @@ function Header() {
       <nav className="flex items-center justify-between">
         <Link className="block py-2" href="/">
           <Image
+            priority={true}
             src="/assets/logo.webp"
             alt="Home"
             width="0"

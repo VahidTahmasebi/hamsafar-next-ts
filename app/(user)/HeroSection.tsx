@@ -4,7 +4,7 @@ import Button from "@/components/buttons/Button";
 
 const HeroSection = () => {
   return (
-    <>
+    <div>
       <div className="w-full h-[500px]">
         <div className="flex justify-between items-center">
           <section className="max-w-lg flex flex-col gap-6 text-base">
@@ -92,7 +92,7 @@ const HeroSection = () => {
           <span>Search</span>
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 

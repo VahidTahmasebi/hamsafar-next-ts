@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={`${vazirFont.variable} max-w-7xl container font-sans`}>
         <Providers>
           <Header />
-          <div className="pb-16">{children}</div>
+          <div>{children}</div>
           <Footer />
         </Providers>
       </body>

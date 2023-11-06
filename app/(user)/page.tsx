@@ -4,7 +4,7 @@ import HotelsSection from "./HotelsSection";
 const Homepage = () => {
   return (
     <div className="flex flex-col gap-y-20">
-      {/* <HeroSection /> */}
+      <HeroSection />
       <HotelsSection />
     </div>
   );
