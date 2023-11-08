@@ -22,7 +22,7 @@ const Button = ({
   background,
 }: Props): ReactElement => {
   const classStr = classnames(
-    "flex justify-center items-center gap-x-3 border rounded-3xl text-base font-medium",
+    "flex justify-center items-center border rounded-3xl text-sm sm:text-base font-medium",
     width,
     height,
     padding,

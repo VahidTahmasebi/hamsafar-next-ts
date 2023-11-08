@@ -25,10 +25,24 @@ const HotelsSection = (): JSX.Element => {
     <>
       <div className="h-96">
         <Swiper
-          slidesPerView={3.5}
+          slidesPerView={1.1}
           // spaceBetween={30}
           pagination={{
             clickable: true,
+          }}
+          breakpoints={{
+            375: {
+              slidesPerView: 1.1,
+            },
+            640: {
+              slidesPerView: 2.2,
+            },
+            768: {
+              slidesPerView: 2.5,
+            },
+            1024: {
+              slidesPerView: 3.5,
+            },
           }}
           // modules={[Pagination]}
           className="wh-full--class rounded-3xl">
@@ -59,11 +73,11 @@ const HotelsSection = (): JSX.Element => {
                   </span>
                 </div>
               </div>
-              <div className="cart--class max-w-[17rem] bottom-4 left-7 text-left">
+              <div className="cart--class bottom-4 left-7 text-left">
                 <span className="cart__text--class rounded-t-xl">
                   ${hotel.price}
                 </span>
-                <h5 className="cart__text--class rounded-b-xl rounded-tr-xl">
+                <h5 className="cart__text--class w-4/6 rounded-b-xl rounded-tr-xl">
                   {hotel.name}
                 </h5>
               </div>

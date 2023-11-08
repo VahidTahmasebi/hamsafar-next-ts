@@ -6,6 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   font-family: var(--vazir-font);
   min-height: 100vh;
   user-select: none;
@@ -18,10 +19,27 @@ body {
   .icon--class {
     @apply w-6 h-6;
   }
+  .icon__navbar--class {
+    @apply w-12 h-12;
+  }
   .cart--class {
     @apply absolute space-y-1 text-lg font-bold;
   }
   .cart__text--class {
     @apply py-1 px-2 bg-[rgba(255,255,255,0.8)];
   }
+  .shadow-navbar {
+    @apply shadow-[0px_-5px_20px_-5px_rgba(143,205,152,0.7),0px_5px_20px_-5px_rgba(143,205,152,0.7)];
+  }
+}
+
+.indicator {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  outline: 6px solid #c9c9c97a;
+  background-color: #f8fefac0;
 }
