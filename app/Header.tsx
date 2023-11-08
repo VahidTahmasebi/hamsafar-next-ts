@@ -10,35 +10,42 @@ function Header() {
   ];
 
   return (
-    <header className="sticky top-0 bg-white transition-all duration-200">
-      <nav className="flex items-center justify-between">
-        <Link className="block py-2" href="/">
-          <Image
-            priority={true}
-            src="/assets/logo.webp"
-            alt="Home"
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="w-44 h-auto"
-          />
-        </Link>
-        <ul className="h-16 flex items-center space-x-20 py-2 font-bold">
+    <header className="sticky top-2 z-10 flex items-center justify-between px-5 rounded-3xl bg-c-surface-600/70 backdrop-blur-md shadow-2xl shadow-c-surface-dark-300/20 transition-all duration-200">
+      <Link className="block py-2" href="/">
+        <Image
+          priority={true}
+          src="/assets/logo.webp"
+          alt="Home"
+          width="0"
+          height="0"
+          sizes="100vw"
+          className="w-40 lg:w-44 h-auto"
+        />
+      </Link>
+      <nav>
+        <ul className="h-16 flex items-center sm:space-x-8 md:space-x-20 py-2 font-bold">
           {routeMenu.map((route, index) => (
-            <li key={index}>
-              <Link className="block py-2 text-[#816D87]" href={route.href}>
-                {route.value}
-              </Link>
+            <li key={index} className="hidden sm:block py-2 text-[#816D87]">
+              <Link href={route.href}>{route.value}</Link>
             </li>
           ))}
           <li>
             <Button
-              width="w-36"
+              width="w-full"
               height="h-10"
               padding="px-5"
               color="text-[#fffbeb]"
               background="bg-[#ffa57b]">
-              Login | signup
+              <span className="hidden sm:block">Login | signup</span>
+
+              <Image
+                src="/assets/icons/login-icon.svg"
+                alt=""
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="icon--class sm:ml-3"
+              />
             </Button>
           </li>
         </ul>

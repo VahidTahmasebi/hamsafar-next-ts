@@ -20,7 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" dir="ltr">
-      <body className={`${vazirFont.variable} max-w-7xl container font-sans`}>
+      <body
+        className={`${vazirFont.variable} xl:max-w-7xl container mx-auto px-6 font-sans`}>
         <Providers>
           <Header />
           <div>{children}</div>

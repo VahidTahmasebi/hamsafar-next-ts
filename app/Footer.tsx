@@ -12,10 +12,10 @@ function Footer() {
   ];
 
   return (
-    <footer className="w-full mt-20 pt-6 rounded-t-3xl text-c-surface-600 bg-c-surface-mixed-dark-200">
-      <div className="flex justify-between px-12">
+    <footer className="w-full mt-20 rounded-t-3xl text-c-surface-600 bg-c-surface-mixed-dark-200">
+      <div className="flex flex-col-reverse sm:flex-row justify-between space-x-5 py-6 px-9">
         <div className="w-3/4 space-y-4 text-left">
-          <h6>
+          <h6 className="hidden sm:block">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
             exercitationem eaque aspernatur consectetur at molestias nemo
             reprehenderit vitae minima. Commodi ab sunt veritatis molestias id
@@ -57,11 +57,13 @@ function Footer() {
       </div>
 
       <div className="flex justify-between items-center px-12 border-t-2 border-c-surface-dark-500 text-c-surface-dark-600">
-        <nav>
-          <ul className="flex divide-x-2 divide-c-surface-dark-600 font-bold">
+        <nav className="hidden md:block">
+          <ul className="flex first:pl-0 divide-x-2 divide-c-surface-dark-600 font-bold">
             {routeMenu.map((route, index) => (
               <li key={index}>
-                <Link className="p-2" href={route.href}>
+                <Link
+                  className={`${index === 0 && "pl-0"} p-2`}
+                  href={route.href}>
                   {route.value}
                 </Link>
               </li>
@@ -69,7 +71,7 @@ function Footer() {
           </ul>
         </nav>
         <div className="flex justify-center items-center">
-          <p className="block py-2 ">
+          <p className="block py-2 text-sm">
             Copyright © 2023 Hamsafar All rights reserved
           </p>
         </div>
