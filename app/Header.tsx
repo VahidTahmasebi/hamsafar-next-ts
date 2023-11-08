@@ -1,9 +1,15 @@
+"use client";
+
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 import Button from "@/common/buttons/Button";
 
 function Header() {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const routeMenu = [
     { value: "Destinations", href: "/" },
     { value: "Blog", href: "/" },
@@ -24,11 +30,22 @@ function Header() {
       </Link>
       <nav>
         <ul className="h-16 flex items-center sm:space-x-8 md:space-x-20 py-2 font-bold">
-          {routeMenu.map((route, index) => (
-            <li key={index} className="hidden sm:block py-2 text-[#816D87]">
-              <Link href={route.href}>{route.value}</Link>
-            </li>
-          ))}
+          {routeMenu.map((route, index) => {
+            const isActive =
+              (pathname.includes(route.href) && route.href.length > 1) ||
+              pathname === route.href;
+
+            return (
+              <li key={index} className="hidden sm:block py-2 text-[#816D87]">
+                <Link href={route.href}>
+                  {route.value}
+                  {isActive && (
+                    <div className="w-5 h-1 mt-1 mx-auto rounded-md bg-c-orange-500" />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
           <li>
             <Button
               width="w-full"
@@ -36,7 +53,7 @@ function Header() {
               padding="px-5"
               color="text-[#fffbeb]"
               background="bg-[#ffa57b]">
-              <span className="hidden sm:block">Login | signup</span>
+              <span className="hidden sm:block">Login | Signup</span>
 
               <Image
                 src="/assets/icons/login-icon.svg"
