@@ -28,8 +28,14 @@ body {
   .cart__text--class {
     @apply py-1 px-2 bg-[rgba(255,255,255,0.8)];
   }
-  .shadow-navbar {
+  .shadow-navbar--class {
     @apply shadow-[0px_-5px_20px_-5px_rgba(143,205,152,0.7),0px_5px_20px_-5px_rgba(143,205,152,0.7)];
+  }
+  .cart-container__lazy--class {
+    @apply relative rounded-3xl bg-slate-400/40 animate-pulse;
+  }
+  .cart__lazy--class {
+    @apply h-2 absolute rounded bg-slate-500;
   }
 }
 
