@@ -3,10 +3,29 @@
 import "swiper/css";
 import "swiper/css/pagination";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 
 import { useGetHotels } from "@/hooks/useHotels";
+
+import CartLazyLoad from "@/common/LazyLoads/CartLazyLoad";
+
+const Swiper = dynamic(() => import("swiper/react").then((mod) => mod.Swiper), {
+  ssr: false,
+  loading: () => (
+    <>
+      <div className=" h-96 flex justify-between items-center gap-x-5 rounded-3xl shadow animate-pulse">
+        <div className="wh-full--class cart-container__lazy--class">
+          <CartLazyLoad />
+        </div>
+        <div className="hidden sm:flex wh-full--class cart-container__lazy--class">
+          <CartLazyLoad />
+        </div>
+      </div>
+    </>
+  ),
+});
 
 interface Hotel {
   id: string;
@@ -25,11 +44,12 @@ const HotelsSection = (): JSX.Element => {
     <>
       <div className="h-96">
         <Swiper
-          slidesPerView={1.1}
-          // spaceBetween={30}
+          // modules={[Pagination]}
           pagination={{
             clickable: true,
           }}
+          // spaceBetween={30}
+          slidesPerView={1.1}
           breakpoints={{
             375: {
               slidesPerView: 1.1,
@@ -44,10 +64,11 @@ const HotelsSection = (): JSX.Element => {
               slidesPerView: 3.5,
             },
           }}
-          // modules={[Pagination]}
           className="wh-full--class rounded-3xl">
           {hotels?.map((hotel: Hotel) => (
-            <SwiperSlide key={hotel.id} className="w-fit relative px-3">
+            <SwiperSlide
+              key={hotel.id}
+              className="w-fit relative px-3 first:pl-0 last:pr-0">
               <Image
                 src={hotel.picture_url.url}
                 alt={hotel.name}

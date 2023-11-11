@@ -25,7 +25,7 @@ function Footer() {
   return (
     <footer className="flex justify-center items-center">
       <nav className="w-full fixed sm:hidden bottom-5 z-10 px-6">
-        <ul className="shadow-navbar relative flex justify-around items-center gap-3 p-3 rounded-3xl bg-c-surface-600/70 backdrop-blur-md">
+        <ul className="shadow-navbar--class relative flex justify-around items-center gap-3 p-3 rounded-3xl bg-c-surface-600/70 backdrop-blur-md">
           {routeNavbar.map((route, index) => {
             const isActive =
               (pathname.includes(route.href) && route.href.length > 1) ||
