@@ -68,7 +68,7 @@ const HotelsSection = (): JSX.Element => {
           {hotels?.map((hotel: Hotel) => (
             <SwiperSlide
               key={hotel.id}
-              className="w-fit relative px-3 first:pl-0 last:pr-0">
+              className="w-fit relative pr-5 last:pr-0">
               <Image
                 src={hotel.picture_url.url}
                 alt={hotel.name}
