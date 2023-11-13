@@ -66,7 +66,7 @@ const HeroSection: FC = () => {
       <div className=" sm:h-4/6">
         <div className="flex justify-between items-center">
           <section className="flex flex-col gap-6 text-base">
-            <h4 className="font-bold text-c-orange-200">Explore the world</h4>
+            <h4 className="font-bold text-c-orange-500">Explore the world</h4>
             <h2 className="text-3xl lg:text-5xl font-bold">
               Plan your trip with us whenever you want
             </h2>
@@ -81,7 +81,7 @@ const HeroSection: FC = () => {
                 width="w-32"
                 height="h-12"
                 padding="px-5"
-                color="text-[#f0fdf4]"
+                color="text-[#E4F4E7]"
                 background="bg-c-primary-500">
                 Book Trip
               </Button>
@@ -99,8 +99,8 @@ const HeroSection: FC = () => {
       </div>
 
       <form
-        onSubmit={handleSubmit(onFormSubmit)}
-        className="sm:max-w-2xl sm:h-16 flex flex-col sm:flex-row justify-around items-start sm:items-center gap-y-10 gap-x-4 sm:px-5 rounded-full sm:shadow-2xl sm:shadow-c-primary-600/70">
+        onSubmit={() => handleSubmit(onFormSubmit)}
+        className="sm:max-w-3xl sm:h-16 flex flex-col sm:flex-row justify-around items-start sm:items-center gap-y-10 gap-x-4 p-4 sm:px-5 rounded-3xl sm:rounded-full bg-c-surface-200/50 shadow-xl shadow-c-primary-500/30">
         <TextField
           register={register}
           type="text"
@@ -141,7 +141,7 @@ const HeroSection: FC = () => {
                   }}
                   calendarPosition="bottom-right"
                   value={value || ""}
-                  inputClass="w-full p-2 pr-11 placeholder:text-main-slate-400 outline-none border-2 border-transparent hover:border-2 hover:border-c-primary-600/40 rounded-3xl focus:ring-1 focus:ring-offset-1 focus:ring-c-primary-600 bg-c-surface-600 shadow-sm transition ease-in duration-200"
+                  inputClass="w-full p-2 pr-11 outline-none border-2 border-transparent hover:border-2 hover:border-c-primary-600/40 rounded-3xl focus:ring-1 focus:ring-offset-1 focus:ring-c-primary-600 bg-c-surface-50 shadow-sm transition ease-in duration-200"
                   onChange={(date) => {
                     onChange(date);
                   }}
@@ -166,8 +166,8 @@ const HeroSection: FC = () => {
         <Button
           width="w-32"
           height="h-12"
-          padding="px-5"
-          color="text-[#f0fdf4]"
+          padding="px-6"
+          color="text-[#E4F4E7]"
           background="bg-c-primary-500">
           <Image
             src="/assets/icons/search-icon.svg"

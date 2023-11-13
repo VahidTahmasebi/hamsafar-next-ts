@@ -27,7 +27,7 @@ const TextField: FC<TextFieldProps> = ({
         min={min}
         maxLength={maxLength}
         placeholder="Where"
-        className="w-full p-2 pr-11 placeholder:text-main-slate-400 outline-none border-2 border-transparent hover:border-2 hover:border-c-primary-600/40 rounded-3xl focus:ring-1 focus:ring-offset-1 focus:ring-c-primary-600 bg-c-surface-600 shadow-sm transition ease-in duration-200"
+        className="w-full p-2 pr-11 outline-none border-2 border-transparent hover:border-2 hover:border-c-primary-600/40 rounded-3xl focus:ring-1 focus:ring-offset-1 focus:ring-c-primary-600 bg-c-surface-50 shadow-sm transition ease-in duration-200"
       />
       <span className="absolute right-3">
         <Image

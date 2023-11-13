@@ -3,12 +3,16 @@
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 import Button from "@/common/buttons/Button";
+import ToggleTheme from "@/components/ToggleTheme";
 
 function Header() {
   const router = useRouter();
   const pathname = usePathname();
+
+  const { theme } = useTheme();
 
   const routeMenu = [
     { value: "Destinations", href: "/" },
@@ -16,11 +20,11 @@ function Header() {
   ];
 
   return (
-    <header className="sticky top-2 z-10 flex items-center justify-between px-5 rounded-3xl bg-c-surface-600/70 backdrop-blur-md shadow-2xl shadow-c-surface-dark-300/20 transition-all duration-200">
+    <header className="sticky top-2 z-10 flex items-center justify-between px-5 rounded-3xl bg-c-surface-100/70 backdrop-blur-md shadow-xl shadow-c-surface-600/10 transition-all duration-200">
       <Link className="block py-2" href="/">
         <Image
           priority={true}
-          src="/assets/logo.webp"
+          src={`/assets/logo-main-${theme === "dark" ? "dark" : "light"}.webp`}
           alt="Home"
           width="0"
           height="0"
@@ -36,23 +40,23 @@ function Header() {
               pathname === route.href;
 
             return (
-              <li key={index} className="hidden sm:block py-2 text-[#816D87]">
+              <li key={index} className="hidden sm:block py-2">
                 <Link href={route.href}>
                   {route.value}
                   {isActive && (
-                    <div className="w-5 h-1 mt-1 mx-auto rounded-md bg-c-orange-500" />
+                    <div className="w-5 h-1 mt-1 mx-auto rounded-md bg-c-orange-600" />
                   )}
                 </Link>
               </li>
             );
           })}
-          <li>
+          <div className="flex items-center gap-4">
             <Button
               width="w-full"
               height="h-10"
               padding="px-5"
-              color="text-[#fffbeb]"
-              background="bg-[#ffa57b]">
+              color="text-[#FFE5D4]"
+              background="bg-c-orange-500">
               <span className="hidden sm:block">Login | Signup</span>
 
               <Image
@@ -64,7 +68,8 @@ function Header() {
                 className="icon--class sm:ml-3"
               />
             </Button>
-          </li>
+            <ToggleTheme />
+          </div>
         </ul>
       </nav>
     </header>

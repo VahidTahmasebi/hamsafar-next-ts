@@ -3,12 +3,15 @@
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 import { socialNetworksIcons } from "@/constants/assets";
 
 function Footer() {
   const router = useRouter();
   const pathname = usePathname();
+
+  const { theme } = useTheme();
 
   const routeMenu = [
     { value: "Destinations", href: "/" },
@@ -24,17 +27,16 @@ function Footer() {
 
   return (
     <footer className="flex justify-center items-center">
+      {/* mobile navbar */}
       <nav className="w-full fixed sm:hidden bottom-5 z-10 px-6">
-        <ul className="shadow-navbar--class relative flex justify-around items-center gap-3 p-3 rounded-3xl bg-c-surface-600/70 backdrop-blur-md">
+        <ul className="shadow-navbar--class relative flex justify-around items-center gap-3 p-3 rounded-3xl bg-c-surface-100/70 backdrop-blur-md">
           {routeNavbar.map((route, index) => {
             const isActive =
               (pathname.includes(route.href) && route.href.length > 1) ||
               pathname === route.href;
 
             return (
-              <li
-                key={index}
-                className={`${index === 1 && "indicator"} py-2 text-[#816D87]`}>
+              <li key={index} className={`${index === 1 && "indicator"}`}>
                 <Link href={route.href}>
                   <Image
                     src={route.value}
@@ -54,8 +56,9 @@ function Footer() {
         </ul>
       </nav>
 
-      <div className="w-full mt-20 mb-32 sm:mb-0 rounded-t-3xl rounded-b-3xl sm:rounded-b-none text-c-surface-600 bg-c-surface-dark-100/80">
-        <div className="flex flex-col-reverse sm:flex-row justify-between sm:space-x-5 py-6 sm:px-9 px-5">
+      {/* footer */}
+      <div className="w-full mt-20 mb-32 sm:mb-0 rounded-t-3xl rounded-b-3xl sm:rounded-b-none bg-c-surface-200/50">
+        <div className="flex flex-col-reverse sm:flex-row justify-between sm:space-x-5 py-6 sm:px-9 px-5 text-c-surface-600">
           <div className="w-3/4 space-y-4 text-left">
             <h6 className="hidden sm:block">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
@@ -71,7 +74,9 @@ function Footer() {
           <div className="flex flex-col justify-center items-center">
             <Link className="" href="/">
               <Image
-                src="/assets/logo-second-light.webp"
+                src={`/assets/logo-second-${
+                  theme === "dark" ? "dark" : "light"
+                }.webp`}
                 alt="Footer Logo"
                 width="0"
                 height="0"
@@ -98,9 +103,9 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex justify-between items-center px-5 sm:px-9 border-t-2 border-c-surface-dark-500 text-c-surface-dark-600">
+        <div className="flex justify-between items-center px-5 sm:px-9 border-t-2 border-c-surface-500 text-c-surface-500">
           <nav className="hidden md:block">
-            <ul className="flex first:pl-0 divide-x-2 divide-c-surface-dark-600 font-bold">
+            <ul className="flex first:pl-0 divide-x-2 divide-c-surface-300 font-bold">
               {routeMenu.map((route, index) => (
                 <li key={index}>
                   <Link

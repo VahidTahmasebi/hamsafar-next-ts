@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
 const { fontFamily } = require("tailwindcss/defaultTheme");
+const { createThemes } = require("tw-colors");
 
 module.exports = {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,59 +12,54 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // #16a34a
-        // #1f2937
-        // #ecfeff
-        // CSS LIGHT THEME PRIMARY COLORS
-        "c-primary-100": "#16a34a",
-        "c-primary-200": "#42ae5e",
-        "c-primary-300": "#5fb871",
-        "c-primary-400": "#78c385",
-        "c-primary-500": "#8fcd98",
-        "c-primary-600": "#a6d7ac",
-        // CSS LIGHT THEME ORANGE COLORS
-        "c-orange-100": "#c2410c",
-        "c-orange-200": "#cd582a",
-        "c-orange-300": "#d76e43",
-        "c-orange-400": "#e0835c",
-        "c-orange-500": "#e89776",
-        "c-orange-600": "#efac90",
-        // CSS LIGHT THEME SURFACE COLORS
-        "c-surface-100": "#f0fdf4",
-        "c-surface-200": "#f2fdf5",
-        "c-surface-300": "#f3fdf6",
-        "c-surface-400": "#f5fef8",
-        "c-surface-500": "#f7fef9",
-        "c-surface-600": "#f8fefa",
-        // CSS LIGHT THEME MIXED SURFACE COLORS
-        "c-surface-mixed-100": "#def4e2",
-        "c-surface-mixed-200": "#e2f5e5",
-        "c-surface-mixed-300": "#e5f6e8",
-        "c-surface-mixed-400": "#e9f8ec",
-        "c-surface-mixed-500": "#edf9ef",
-        "c-surface-mixed-600": "#f0faf2",
-
-        //  CSS DARK THEME PRIMARY COLORS
-        "c-primary-dark-100": "#16a34a",
-        "c-primary-dark-200": "#42ae5e",
-        "c-primary-dark-300": "#5fb871",
-        "c-primary-dark-400": "#78c385",
-        "c-primary-dark-500": "#8fcd98",
-        "c-primary-dark-600": "#a6d7ac",
-        // CSS DARK THEME SURFACE COLORS
-        "c-surface-dark-100": "#1f2937",
-        "c-surface-dark-200": "#343d4a",
-        "c-surface-dark-300": "#4b535f",
-        "c-surface-dark-400": "#626974",
-        "c-surface-dark-500": "#7b808a",
-        "c-surface-dark-600": "#9498a0",
-        // CSS DARK THEME MIXED SURFACE COLORS
-        "c-surface-mixed-dark-100": "#22343a",
-        "c-surface-mixed-dark-200": "#37484d",
-        "c-surface-mixed-dark-300": "#4e5c61",
-        "c-surface-mixed-dark-400": "#657176",
-        "c-surface-mixed-dark-500": "#7d888b",
-        "c-surface-mixed-dark-600": "#969ea1",
+        // primary colors
+        "c-primary-50": "rgb(var(--primary-50) / <alpha-value>)",
+        "c-primary-100": "rgb(var(--primary-100) / <alpha-value>)",
+        "c-primary-200": "rgb(var(--primary-200) / <alpha-value>)",
+        "c-primary-300": "rgb(var(--primary-300) / <alpha-value>)",
+        "c-primary-400": "rgb(var(--primary-400) / <alpha-value>)",
+        "c-primary-500": "rgb(var(--primary-500) / <alpha-value>)",
+        "c-primary-600": "rgb(var(--primary-600) / <alpha-value>)",
+        "c-primary-700": "rgb(var(--primary-700) / <alpha-value>)",
+        "c-primary-800": "rgb(var(--primary-800) / <alpha-value>)",
+        "c-primary-900": "rgb(var(--primary-900) / <alpha-value>)",
+        "c-primary-950": "rgb(var(--primary-950) / <alpha-value>)",
+        // orange colors
+        "c-orange-50": "rgb(var(--orange-50) / <alpha-value>)",
+        "c-orange-100": "rgb(var(--orange-100) / <alpha-value>)",
+        "c-orange-200": "rgb(var(--orange-200) / <alpha-value>)",
+        "c-orange-300": "rgb(var(--orange-300) / <alpha-value>)",
+        "c-orange-400": "rgb(var(--orange-400) / <alpha-value>)",
+        "c-orange-500": "rgb(var(--orange-500) / <alpha-value>)",
+        "c-orange-600": "rgb(var(--orange-600) / <alpha-value>)",
+        "c-orange-700": "rgb(var(--orange-700) / <alpha-value>)",
+        "c-orange-800": "rgb(var(--orange-800) / <alpha-value>)",
+        "c-orange-900": "rgb(var(--orange-900) / <alpha-value>)",
+        "c-orange-950": "rgb(var(--orange-950) / <alpha-value>)",
+        // surface colors
+        "c-surface-50": "rgb(var(--surface-50) / <alpha-value>)",
+        "c-surface-100": "rgb(var(--surface-100) / <alpha-value>)",
+        "c-surface-200": "rgb(var(--surface-200) / <alpha-value>)",
+        "c-surface-300": "rgb(var(--surface-300) / <alpha-value>)",
+        "c-surface-400": "rgb(var(--surface-400) / <alpha-value>)",
+        "c-surface-500": "rgb(var(--surface-500) / <alpha-value>)",
+        "c-surface-600": "rgb(var(--surface-600) / <alpha-value>)",
+        "c-surface-700": "rgb(var(--surface-700) / <alpha-value>)",
+        "c-surface-800": "rgb(var(--surface-800) / <alpha-value>)",
+        "c-surface-900": "rgb(var(--surface-900) / <alpha-value>)",
+        "c-surface-950": "rgb(var(--surface-950) / <alpha-value>)",
+        // main colors
+        "c-main-50": "rgb(var(--main-50) / <alpha-value>)",
+        "c-main-100": "rgb(var(--main-100) / <alpha-value>)",
+        "c-main-200": "rgb(var(--main-200) / <alpha-value>)",
+        "c-main-300": "rgb(var(--main-300) / <alpha-value>)",
+        "c-main-400": "rgb(var(--main-400) / <alpha-value>)",
+        "c-main-500": "rgb(var(--main-500) / <alpha-value>)",
+        "c-main-600": "rgb(var(--main-600) / <alpha-value>)",
+        "c-main-700": "rgb(var(--main-700) / <alpha-value>)",
+        "c-main-800": "rgb(var(--main-800) / <alpha-value>)",
+        "c-main-900": "rgb(var(--main-900) / <alpha-value>)",
+        "c-main-950": "rgb(var(--main-950) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-vazir)", ...fontFamily.sans],

@@ -3,6 +3,7 @@ import vazirFont from "@/constants/localFonts";
 
 import type { Metadata } from "next";
 
+import ProvidersTheme from "../ProvidersTheme";
 import Providers from "../Providers";
 
 import Header from "../Header";
@@ -21,12 +22,16 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr">
       <body
-        className={`${vazirFont.variable} xl:max-w-7xl container mx-auto px-6 font-sans`}>
-        <Providers>
-          <Header />
-          <div>{children}</div>
-          <Footer />
-        </Providers>
+        className={`${vazirFont.variable} font-sans text-c-main-900 bg-c-surface-50`}>
+        <ProvidersTheme>
+          <Providers>
+            <div className="xl:max-w-7xl container mx-auto px-6">
+              <Header />
+              <div>{children}</div>
+              <Footer />
+            </div>
+          </Providers>
+        </ProvidersTheme>
       </body>
     </html>
   );
