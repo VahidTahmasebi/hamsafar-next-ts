@@ -1,24 +1,27 @@
 {
   "commonDic": {
-    "explore": "Explore the world",
-    "plan": "Plan your trip with us whenever you want",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore exercitationem eaque aspernatur consectetur at molestias nemo reprehenderit vitae minima. Commodi ab sunt veritatis molestias id distinctio corporis unde fugiat tenetur.",
-    "bookTrip": "Book Trip",
-    "where": "Where",
-    "when": "When",
-    "travelType": "Travel Type",
-    "search": "Search",
-    "address": "00 Colin P Kelly Jr St San Francisco California 94118",
-    "copyright": "Copyright © 2023 Hamsafar All rights reserved"
+    "exploreWord": "Explore the world",
+    "planWord": "Plan your trip with us whenever you want",
+    "descriptionWord": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore exercitationem eaque aspernatur consectetur at molestias nemo reprehenderit vitae minima. Commodi ab sunt veritatis molestias id distinctio corporis unde fugiat tenetur.",
+    "bookTripWord": "Book Trip",
+    "whereWord": "Where",
+    "whenWord": "When",
+    "travelTypeWord": "Travel Type",
+    "searchWord": "Search",
+    "addressWord": "00 Colin P Kelly Jr St San Francisco California 94118",
+    "copyrightWord": "Copyright © 2023 Hamsafar All rights reserved",
+    "trainWord": "Train",
+    "airplaneWord": "Airplane",
+    "busWord": "Bus"
   },
 
   "navigationDic": {
-    "home": "Home",
-    "destination": "Destination",
-    "blog": "Blog",
-    "about": "About",
-    "contact": "Contact",
-    "loginSignup": "Login | Signup"
+    "homeWord": "Home",
+    "destinationWord": "Destination",
+    "blogWord": "Blog",
+    "aboutWord": "About",
+    "contactWord": "Contact",
+    "loginSignupWord": "Login | Signup"
   },
 
   "page": {
