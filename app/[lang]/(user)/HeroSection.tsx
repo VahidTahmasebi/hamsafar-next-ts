@@ -23,12 +23,7 @@ const HeroSection: FC<HeroSectionProps> = ({ commonDic }) => {
             <h2 className="text-3xl lg:text-5xl font-bold">{planWord}</h2>
             <p className="hidden sm:block">{descriptionWord}</p>
             <div className="hidden sm:block">
-              <Button
-                width="w-32"
-                height="h-12"
-                padding="px-5"
-                color="text-[#E4F4E7]"
-                background="bg-c-primary-500 ring-offset-1 hover:bg-c-primary-600 outline-none focus-within:opacity-70 focus-within:ring-1 focus-within:ring-offset-c-primary-500 shadow-md transition ease-in duration-200">
+              <Button className="w-32 h-12 px-5 text-[#E4F4E7] bg-c-primary-500 hover:bg-c-primary-600 focus-within:ring-offset-c-primary-500">
                 {bookTripWord}
               </Button>
             </div>

@@ -159,12 +159,7 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
         name="travelTypeValue"
       />
 
-      <Button
-        width="w-32"
-        height="h-12"
-        padding="px-6"
-        color="text-[#E4F4E7]"
-        background="bg-c-primary-500">
+      <Button className="w-32 h-12 px-6 text-[#E4F4E7] bg-c-primary-500 hover:bg-c-primary-600 focus-within:ring-offset-c-primary-500">
         <Image
           src={searchIcon}
           alt=""
