@@ -64,7 +64,7 @@ const SearchForm = () => {
   return (
     <form
       onSubmit={() => handleSubmit(onFormSubmit)}
-      className="sm:max-w-3xl sm:h-16 flex flex-col sm:flex-row justify-around items-start sm:items-center gap-y-10 gap-x-4 p-4 sm:px-5 rounded-3xl sm:rounded-full bg-c-surface-200/50 shadow-xl shadow-c-primary-500/30">
+      className="sm:max-w-3xl sm:h-16 flex flex-col sm:flex-row justify-around items-start sm:items-center gap-y-8 gap-x-4 p-4 sm:px-3 rounded-3xl sm:rounded-full bg-c-surface-200/50 shadow-xl shadow-c-primary-500/30">
       <TextField
         register={register}
         type="text"
@@ -139,7 +139,7 @@ const SearchForm = () => {
           width="0"
           height="0"
           sizes="100vw"
-          className="icon--class mr-3"
+          className="icon--class me-3"
         />
         <span>Search</span>
       </Button>

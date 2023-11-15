@@ -28,9 +28,9 @@ const Header: FC<HeaderProps> = async ({ lang }: HeaderProps) => {
     <header className="sticky top-2 z-10 flex items-center justify-between gap-x-2 px-5 rounded-3xl bg-c-surface-100/70 backdrop-blur-md shadow-xl shadow-c-surface-600/10 transition-all duration-200">
       <LogoHeader />
       <nav>
-        <ul className="h-16 flex items-center sm:space-x-5 md:space-x-16 py-2 font-bold">
+        <ul className="h-16 flex justify-start items-center sm:gap-x-5 md:gap-x-16 py-2 font-bold">
           <RouteMenu routeMenu={routeMenu} />
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex justify-start items-center gap-2 sm:gap-4">
             <Button
               width="w-fit sm:w-full"
               height="h-10"
@@ -47,7 +47,7 @@ const Header: FC<HeaderProps> = async ({ lang }: HeaderProps) => {
                 width="0"
                 height="0"
                 sizes="100vw"
-                className="icon--class ml-0 sm:ml-2"
+                className="icon--class ms-0 sm:ms-2"
               />
             </Button>
 

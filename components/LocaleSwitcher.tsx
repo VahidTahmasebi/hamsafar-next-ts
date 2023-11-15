@@ -39,7 +39,7 @@ export default function LocaleSwitcher() {
               sizes="100vw"
               className="w-9 h-9"
             />
-            <span className="absolute -bottom-2 sm:-bottom-1 left-3 sm:left-2.5 text-sm text-c-primary-950">
+            <span className="absolute -bottom-2 sm:-bottom-1 left-3 sm:left-2 text-sm text-c-primary-950">
               {locale.toUpperCase()}
             </span>
           </Link>

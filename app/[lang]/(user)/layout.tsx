@@ -25,7 +25,9 @@ export async function generateStaticParams(): Promise<{ lang: Locale }[]> {
 
 const RootLayout: FC<RootLayoutProps> = ({ children, params }) => {
   return (
-    <html lang="en" dir="ltr">
+    <html
+      lang={params.lang === "en" ? "en" : "fa"}
+      dir={params.lang === "en" ? "ltr" : "rtl"}>
       <body
         className={`${vazirFont.variable} font-sans text-c-main-900 bg-c-surface-50`}>
         <ProvidersTheme>

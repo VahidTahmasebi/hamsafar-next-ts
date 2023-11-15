@@ -33,11 +33,11 @@ const Footer: FC<FooterProps> = async ({
 
       {/* footer */}
       <div className="w-full mt-20 mb-32 sm:mb-0 rounded-t-3xl rounded-b-3xl sm:rounded-b-none bg-c-surface-200/50">
-        <div className="flex flex-col-reverse sm:flex-row justify-between sm:space-x-5 py-6 sm:px-9 px-5 text-c-surface-600">
-          <div className="w-3/4 space-y-4 text-left">
+        <div className="flex flex-col-reverse sm:flex-row justify-between py-6 sm:px-9 px-5 text-c-surface-600">
+          <div className="sm:w-7/12 space-y-4 text-start">
             <h6 className="hidden sm:block">{commonDic.description}</h6>
-            <div className="pl-2 space-y-1 border-l-2 border-c-orange-400">
-              <p>408 - (000-000–000)</p>
+            <div className="ps-2 space-y-1 border-s-2 border-c-orange-400">
+              <p className="ltr w-fit">408 - (000-000–000)</p>
               <p>{commonDic.address}</p>
             </div>
           </div>
@@ -64,11 +64,11 @@ const Footer: FC<FooterProps> = async ({
 
         <div className="flex justify-between items-center px-5 sm:px-9 border-t-2 border-c-surface-500 text-c-surface-500">
           <nav className="hidden md:block">
-            <ul className="flex first:pl-0 divide-x-2 divide-c-surface-300 font-bold">
+            <ul className="ltr flex first:ps-0 divide-x-2 divide-c-surface-300 font-bold">
               {routeMenu.map((route, index) => (
                 <li key={index}>
                   <Link
-                    className={`${index === 0 && "pl-0"} p-2`}
+                    className={`${index === 0 && "ms-0"} m-2`}
                     href={route.href}>
                     {route.value}
                   </Link>

@@ -10,7 +10,7 @@ const Homepage = async ({ params: { lang } }: { params: { lang: Locale } }) => {
   return (
     <div className="flex flex-col gap-y-20 mt-7">
       <HeroSection lang={lang} />
-      <HotelsSection />
+      <HotelsSection lang={lang} />
     </div>
   );
 };
