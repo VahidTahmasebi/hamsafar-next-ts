@@ -1,11 +1,13 @@
 import Image from "next/image";
 
+import starLazyIcon from "@/public/assets/icons/star-lazy-icon.svg";
+
 const CartLazyLoad = () => {
   return (
     <>
       <div className="absolute top-4 right-7">
         <Image
-          src="/assets/icons/star-lazy-icon.svg"
+          src={starLazyIcon}
           alt=""
           width="0"
           height="0"

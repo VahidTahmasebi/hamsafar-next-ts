@@ -142,6 +142,15 @@ body {
   }
 }
 
+@layer utilities {
+  .ltr {
+    direction: ltr;
+  }
+  .rtl {
+    direction: rtl;
+  }
+}
+
 .indicator {
   width: 70px;
   height: 70px;

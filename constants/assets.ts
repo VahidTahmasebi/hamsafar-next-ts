@@ -1,22 +1,27 @@
+import linkedinIcon from "@/public/assets/icons/linkedin-icon.svg";
+import twitterXIcon from "@/public/assets/icons/twitter-x-icon.svg";
+import instagramIcon from "@/public/assets/icons/instagram-icon.svg";
+import telegramIcon from "@/public/assets/icons/telegram-icon.svg";
+
 export const socialNetworksIcons = [
   {
     label: "linkedin",
     route: "/",
-    icon: "/assets/icons/linkedin-icon.svg",
+    icon: linkedinIcon,
   },
   {
     label: "twitter-x",
     route: "/",
-    icon: "/assets/icons/twitter-x-icon.svg",
+    icon: twitterXIcon,
   },
   {
     label: "instagram",
     route: "/",
-    icon: "/assets/icons/instagram-icon.svg",
+    icon: instagramIcon,
   },
   {
     label: "telegram",
     route: "/",
-    icon: "/assets/icons/telegram-icon.svg",
+    icon: telegramIcon,
   },
 ];

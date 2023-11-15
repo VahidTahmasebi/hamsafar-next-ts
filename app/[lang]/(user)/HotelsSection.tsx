@@ -6,6 +6,9 @@ import "swiper/css/pagination";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { SwiperSlide } from "swiper/react";
+import { Locale } from "@/i18n.config";
+
+import starIcon from "@/public/assets/icons/star-icon.svg";
 
 import { useGetHotels } from "@/hooks/useHotels";
 
@@ -37,7 +40,11 @@ interface Hotel {
   review_scores_rating: number;
 }
 
-const HotelsSection = (): JSX.Element => {
+interface HotelsSectionProps {
+  lang: Locale;
+}
+
+const HotelsSection = ({ lang }: HotelsSectionProps): JSX.Element => {
   const { isLoading, data: hotels } = useGetHotels();
 
   return (
@@ -68,7 +75,7 @@ const HotelsSection = (): JSX.Element => {
           {hotels?.map((hotel: Hotel) => (
             <SwiperSlide
               key={hotel.id}
-              className="w-fit relative pr-5 last:pr-0">
+              className="w-fit relative pe-5 last:pe-0">
               <Image
                 src={hotel.picture_url.url}
                 alt={hotel.name}
@@ -77,10 +84,10 @@ const HotelsSection = (): JSX.Element => {
                 sizes="100vw"
                 className="wh-full--class block rounded-3xl object-cover"
               />
-              <div className="cart--class max-w-[7rem] top-4 right-7">
+              <div className="cart--class max-w-[7rem] top-4 end-7 text-end">
                 <div className="cart__text--class rounded-xl grid place-items-center">
                   <Image
-                    src="/assets/icons/star-icon.svg"
+                    src={starIcon}
                     alt=""
                     width="0"
                     height="0"
@@ -94,11 +101,15 @@ const HotelsSection = (): JSX.Element => {
                   </span>
                 </div>
               </div>
-              <div className="cart--class bottom-4 left-7 text-left">
+
+              <div className="cart--class bottom-4 start-7 text-start">
                 <span className="cart__text--class rounded-t-xl">
                   ${hotel.price}
                 </span>
-                <h5 className="cart__text--class w-4/6 rounded-b-xl rounded-tr-xl">
+                <h5
+                  className={`cart__text--class w-4/6 rounded-b-xl ${
+                    lang === "en" ? "rounded-tr-xl" : "rounded-tl-xl"
+                  }`}>
                   {hotel.name}
                 </h5>
               </div>

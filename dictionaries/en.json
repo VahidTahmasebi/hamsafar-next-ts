@@ -1,0 +1,34 @@
+{
+  "commonDic": {
+    "explore": "Explore the world",
+    "plan": "Plan your trip with us whenever you want",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore exercitationem eaque aspernatur consectetur at molestias nemo reprehenderit vitae minima. Commodi ab sunt veritatis molestias id distinctio corporis unde fugiat tenetur.",
+    "bookTrip": "Book Trip",
+    "where": "Where",
+    "when": "When",
+    "travelType": "Travel Type",
+    "search": "Search",
+    "address": "00 Colin P Kelly Jr St San Francisco California 94118",
+    "copyright": "Copyright © 2023 Hamsafar All rights reserved"
+  },
+
+  "navigationDic": {
+    "home": "Home",
+    "destination": "Destination",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "loginSignup": "Login | Signup"
+  },
+
+  "page": {
+    "home": {
+      "title": "Welcome to NextJs i18n",
+      "description": "Internationalization in NextJs 13 App router"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "This is the about page"
+    }
+  }
+}

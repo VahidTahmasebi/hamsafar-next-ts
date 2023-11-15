@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
 const { fontFamily } = require("tailwindcss/defaultTheme");
-const { createThemes } = require("tw-colors");
 
 module.exports = {
   content: [
