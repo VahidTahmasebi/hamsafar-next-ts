@@ -4,7 +4,6 @@ import Image from "next/image";
 import loginIcon from "@/public/assets/icons/login-icon.svg";
 
 import { Locale } from "@/i18n.config";
-import { getDictionary } from "@/lib/dictionary";
 
 import Button from "@/common/buttons/Button";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
@@ -14,14 +13,19 @@ import RouteMenu from "./components/RouteMenu";
 
 interface HeaderProps {
   lang: Locale;
+  navigationDic: {
+    destinationWord: string;
+    blogWord: string;
+    loginSignupWord: string;
+  };
 }
 
-const Header: FC<HeaderProps> = async ({ lang }: HeaderProps) => {
-  const { navigationDic } = await getDictionary(lang);
+const Header: FC<HeaderProps> = async ({ lang, navigationDic }) => {
+  const { destinationWord, blogWord, loginSignupWord } = navigationDic;
 
   const routeMenu = [
-    { value: `${navigationDic.destination}`, href: `/${lang}/destination` },
-    { value: `${navigationDic.blog}`, href: `/${lang}/blog` },
+    { value: destinationWord, href: `/${lang}/destination` },
+    { value: blogWord, href: `/${lang}/blog` },
   ];
 
   return (
@@ -37,9 +41,7 @@ const Header: FC<HeaderProps> = async ({ lang }: HeaderProps) => {
               padding="px-2"
               color="text-[#FFE5D4]"
               background="bg-c-orange-500">
-              <span className="hidden sm:block">
-                {navigationDic.loginSignup}
-              </span>
+              <span className="hidden sm:block">{loginSignupWord}</span>
 
               <Image
                 src={loginIcon}

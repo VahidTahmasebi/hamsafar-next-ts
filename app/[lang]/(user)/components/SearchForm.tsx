@@ -1,10 +1,16 @@
 "use client";
-
 import React, { FC, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { useForm, Controller } from "react-hook-form";
 import DatePicker, { DateObject } from "react-multi-date-picker";
+
+import { ICommonDic } from "@/types/IDictionaries";
+
+import placeIcon from "@/public/assets/icons/place-icon.svg";
+import calendarSearchIcon from "@/public/assets/icons/calendar-search-icon.svg";
+import searchIcon from "@/public/assets/icons/search-icon.svg";
 
 import Button from "@/common/buttons/Button";
 import TextField from "@/common/Inputs/TextField";
@@ -16,20 +22,30 @@ import gregorian_en from "react-date-object/locales/gregorian_en";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import "react-multi-date-picker/styles/backgrounds/bg-dark.css";
+import "react-multi-date-picker/styles/colors/teal.css";
 
 interface Option {
   value: string;
 }
 
-const initialOptions: Option[] = [
-  { value: `train` },
-  { value: "airplane" },
-  { value: "bus" },
-];
+interface SearchFormProps {
+  commonDic: ICommonDic;
+}
 
-const SearchForm = () => {
+const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
+  const { trainWord, airplaneWord, busWord, searchWord, whenWord, whereWord } =
+    commonDic;
+
   const router = useRouter();
   const pathname = usePathname();
+
+  const { theme } = useTheme();
+
+  const initialOptions: Option[] = [
+    { value: trainWord },
+    { value: airplaneWord },
+    { value: busWord },
+  ];
 
   const [date, setDate] = useState<Date | undefined>();
 
@@ -39,20 +55,21 @@ const SearchForm = () => {
     control,
     formState: { errors },
   } = useForm<{
-    where: string;
-    when: string;
-    date: string;
+    whereValue: string;
+    whenValue: string;
+    travelTypeValue: string;
   }>({
     defaultValues: {
-      where: "",
-      when: "train",
+      whereValue: "",
+      whenValue: "",
+      travelTypeValue: trainWord,
     },
   });
 
   const onFormSubmit = async (values: {
-    where: string;
-    when: string;
-    date: string;
+    whereValue: string;
+    whenValue: string;
+    travelTypeValue: string;
   }) => {
     if (pathname === "/search") {
       router.back();
@@ -68,16 +85,18 @@ const SearchForm = () => {
       <TextField
         register={register}
         type="text"
+        name="whereValue"
+        placeholder={whereWord}
         inputMode=""
         min={2}
         maxLength={8}
-        icon="place"
+        icon={placeIcon}
       />
 
       <div className="w-4/6 h-full relative flex justify-center items-center">
         <Controller
           control={control}
-          name="date"
+          name="whenValue"
           rules={{ required: true }} //optional
           render={({
             field: { onChange, name, value },
@@ -89,12 +108,20 @@ const SearchForm = () => {
                 calendar={gregorian}
                 locale={gregorian_en}
                 showOtherDays
-                placeholder="When"
+                placeholder={whenWord}
                 minDate={new DateObject()}
                 maxDate="2099/12/29"
-                mapDays={({ date }) => {
+                mapDays={({ isSameDate, date, selectedDate }) => {
                   let props: any = {};
                   let isWeekend = date.weekDay.index === 6;
+
+                  if (isSameDate(date, selectedDate))
+                    props.style = {
+                      ...props.style,
+                      backgroundColor: "#4B9C57",
+                      fontWeight: "bold",
+                      border: "1px solid #777",
+                    };
 
                   if (isWeekend) props.className = "highlight highlight-red";
 
@@ -103,6 +130,7 @@ const SearchForm = () => {
                 containerStyle={{
                   width: "100%",
                 }}
+                className={theme === "dark" ? "bg-dark teal" : "teal"}
                 calendarPosition="bottom-right"
                 value={value || ""}
                 inputClass="w-full p-2 pr-11 outline-none border-2 border-transparent hover:border-2 hover:border-c-primary-600/40 rounded-3xl focus:ring-1 focus:ring-offset-1 focus:ring-c-primary-600 bg-c-surface-50 shadow-sm transition ease-in duration-200"
@@ -115,7 +143,7 @@ const SearchForm = () => {
         />
         <span className="absolute right-3">
           <Image
-            src={`/assets/icons/calendar-search-icon.svg`}
+            src={calendarSearchIcon}
             alt=""
             width="0"
             height="0"
@@ -125,7 +153,11 @@ const SearchForm = () => {
         </span>
       </div>
 
-      <SelectorInput register={register} initialOptions={initialOptions} />
+      <SelectorInput
+        register={register}
+        initialOptions={initialOptions}
+        name="travelTypeValue"
+      />
 
       <Button
         width="w-32"
@@ -134,14 +166,14 @@ const SearchForm = () => {
         color="text-[#E4F4E7]"
         background="bg-c-primary-500">
         <Image
-          src="/assets/icons/search-icon.svg"
+          src={searchIcon}
           alt=""
           width="0"
           height="0"
           sizes="100vw"
           className="icon--class me-3"
         />
-        <span>Search</span>
+        <span>{searchWord}</span>
       </Button>
     </form>
   );
