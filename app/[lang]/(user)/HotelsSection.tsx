@@ -7,6 +7,8 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { SwiperSlide } from "swiper/react";
 
+import starIcon from "@/public/assets/icons/star-icon.svg";
+
 import { useGetHotels } from "@/hooks/useHotels";
 
 import CartLazyLoad from "@/common/LazyLoads/CartLazyLoad";
@@ -80,7 +82,7 @@ const HotelsSection = (): JSX.Element => {
               <div className="cart--class max-w-[7rem] top-4 right-7">
                 <div className="cart__text--class rounded-xl grid place-items-center">
                   <Image
-                    src="/assets/icons/star-icon.svg"
+                    src={starIcon}
                     alt=""
                     width="0"
                     height="0"
