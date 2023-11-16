@@ -35,7 +35,9 @@ const Header: FC<HeaderProps> = async ({ lang, navigationDic }) => {
         <ul className="h-16 flex justify-start items-center sm:gap-x-5 md:gap-x-16 py-2 font-bold">
           <RouteMenu routeMenu={routeMenu} />
           <div className="flex justify-start items-center gap-2 sm:gap-4">
-            <Button className="w-fit sm:w-full h-10 px-2 text-[#FFE5D4] bg-c-orange-500 hover:bg-c-orange-600 focus-within:ring-offset-c-orange-500">
+            <Button
+              type="button"
+              className="w-fit sm:w-full h-10 px-2 text-[#FFE5D4] bg-c-orange-500 hover:bg-c-orange-600 focus-within:ring-offset-c-orange-500">
               <span className="hidden sm:block">{loginSignupWord}</span>
 
               <Image

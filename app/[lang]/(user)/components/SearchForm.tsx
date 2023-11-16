@@ -1,5 +1,6 @@
 "use client";
-import React, { FC, useState } from "react";
+
+import React, { FC } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -47,8 +48,6 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
     { value: busWord },
   ];
 
-  const [date, setDate] = useState<Date | undefined>();
-
   const {
     register,
     handleSubmit,
@@ -56,7 +55,7 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
     formState: { errors },
   } = useForm<{
     whereValue: string;
-    whenValue: string;
+    whenValue: any;
     travelTypeValue: string;
   }>({
     defaultValues: {
@@ -68,7 +67,7 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
 
   const onFormSubmit = async (values: {
     whereValue: string;
-    whenValue: string;
+    whenValue: any;
     travelTypeValue: string;
   }) => {
     if (pathname === "/search") {
@@ -80,7 +79,7 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
 
   return (
     <form
-      onSubmit={() => handleSubmit(onFormSubmit)}
+      onSubmit={handleSubmit(onFormSubmit)}
       className="sm:max-w-3xl sm:h-16 flex flex-col sm:flex-row justify-around items-start sm:items-center gap-y-8 gap-x-4 p-4 sm:px-3 rounded-3xl sm:rounded-full bg-c-surface-200/50 shadow-xl shadow-c-primary-500/30">
       <TextField
         register={register}
@@ -111,9 +110,14 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
                 placeholder={whenWord}
                 minDate={new DateObject()}
                 maxDate="2099/12/29"
+                format={"YYYY/MM/DD"}
                 mapDays={({ isSameDate, date, selectedDate }) => {
                   let props: any = {};
                   let isWeekend = date.weekDay.index === 6;
+
+                  if (Array.isArray(selectedDate)) {
+                    selectedDate = selectedDate[0];
+                  }
 
                   if (isSameDate(date, selectedDate))
                     props.style = {
@@ -135,7 +139,9 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
                 value={value || ""}
                 inputClass="w-full p-2 pr-11 outline-none border-2 border-transparent hover:border-2 hover:border-c-primary-600/40 rounded-3xl focus:ring-1 focus:ring-offset-1 focus:ring-c-primary-600 bg-c-surface-50 shadow-sm transition ease-in duration-200"
                 onChange={(date) => {
-                  onChange(date);
+                  if (date instanceof DateObject && date.isValid) {
+                    onChange(date?.isValid ? date : "");
+                  }
                 }}
               />
             </>
@@ -159,7 +165,9 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
         name="travelTypeValue"
       />
 
-      <Button className="w-32 h-12 px-6 text-[#E4F4E7] bg-c-primary-500 hover:bg-c-primary-600 focus-within:ring-offset-c-primary-500">
+      <Button
+        type="submit"
+        className="w-32 h-12 px-6 text-[#E4F4E7] bg-c-primary-500 hover:bg-c-primary-600 focus-within:ring-offset-c-primary-500">
         <Image
           src={searchIcon}
           alt=""
