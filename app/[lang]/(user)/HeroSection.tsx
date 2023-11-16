@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { ICommonDic } from "@/types/IDictionaries";
 
-import heroImage from "@/public//assets/images/hero-image.webp";
+import heroImage from "@/public/assets/images/hero-image.webp";
 
 import Button from "@/common/buttons/Button";
 import SearchForm from "./components/SearchForm";
@@ -32,6 +32,7 @@ const HeroSection: FC<HeroSectionProps> = ({ commonDic }) => {
           </section>
           <Image
             src={heroImage}
+            priority
             alt="Hero Image"
             width={0}
             height={0}
