@@ -34,12 +34,12 @@ export default function LocaleSwitcher() {
             <Image
               src={theme === "dark" ? flagDarkIcon : flagLightIcon}
               alt=""
-              width={0}
-              height={0}
+              width="0"
+              height="0"
               sizes="100vw"
-              className="w-9 h-9"
+              className="w-7 h-7"
             />
-            <span className="absolute -bottom-2 sm:-bottom-1 left-3 sm:left-2 text-sm text-c-primary-950">
+            <span className="absolute -bottom-2 left-2 text-sm text-c-primary-950">
               {locale.toUpperCase()}
             </span>
           </Link>
