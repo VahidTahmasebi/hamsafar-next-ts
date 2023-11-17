@@ -18,7 +18,7 @@ const HeroSection: FC<HeroSectionProps> = ({ commonDic }) => {
     <div className="flex flex-col gap-y-5 xl:gap-y-0 transition-all duration-700 ease-out">
       <div className=" sm:h-4/6">
         <div className="flex justify-between items-center">
-          <section className="flex flex-col gap-6 text-base">
+          <section className="w-4/6 flex flex-col gap-6 text-base">
             <h4 className="font-bold text-c-orange-500">{exploreWord}</h4>
             <h2 className="text-3xl lg:text-5xl font-bold">{planWord}</h2>
             <p className="hidden sm:block">{descriptionWord}</p>
