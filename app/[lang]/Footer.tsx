@@ -18,11 +18,11 @@ interface FooterProps {
 }
 
 const Footer: FC<FooterProps> = async ({ lang, navigationDic, commonDic }) => {
-  const { destinationWord, blogWord, aboutWord, contactWord } = navigationDic;
+  const { toursWord, blogWord, aboutWord, contactWord } = navigationDic;
   const { descriptionWord, addressWord, copyrightWord } = commonDic;
 
   const routeMenu: { value: string; href: string }[] = [
-    { value: destinationWord, href: `/${lang}/destination` },
+    { value: toursWord, href: `/${lang}/tours` },
     { value: blogWord, href: `/${lang}/blog` },
     { value: aboutWord, href: `/${lang}/about` },
     { value: contactWord, href: `/${lang}/contact` },

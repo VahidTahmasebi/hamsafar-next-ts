@@ -16,7 +16,7 @@ export interface ICommonDic {
 
 export interface INavigationDic {
   homeWord: string;
-  destinationWord: string;
+  toursWord: string;
   blogWord: string;
   aboutWord: string;
   contactWord: string;

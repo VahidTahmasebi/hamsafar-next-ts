@@ -14,17 +14,17 @@ import RouteMenu from "./components/RouteMenu";
 interface HeaderProps {
   lang: Locale;
   navigationDic: {
-    destinationWord: string;
+    toursWord: string;
     blogWord: string;
     loginSignupWord: string;
   };
 }
 
 const Header: FC<HeaderProps> = async ({ lang, navigationDic }) => {
-  const { destinationWord, blogWord, loginSignupWord } = navigationDic;
+  const { toursWord, blogWord, loginSignupWord } = navigationDic;
 
   const routeMenu = [
-    { value: destinationWord, href: `/${lang}/destination` },
+    { value: toursWord, href: `/${lang}/tours` },
     { value: blogWord, href: `/${lang}/blog` },
   ];
 
