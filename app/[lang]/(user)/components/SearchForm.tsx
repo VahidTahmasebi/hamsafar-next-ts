@@ -3,12 +3,15 @@
 import React, { FC } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import { useForm, Controller } from "react-hook-form";
-import calendarSearchIcon from "@/public/assets/icons/calendar-search-icon.svg";
-import { ICommonDic } from "@/types/IDictionaries";
+import { useForm } from "react-hook-form";
 
+import calendarSearchIcon from "@/public/assets/icons/calendar-search-icon.svg";
 import placeIcon from "@/public/assets/icons/place-icon.svg";
 import searchIcon from "@/public/assets/icons/search-icon.svg";
+
+import { Locale } from "@/i18n.config";
+
+import { dictionary } from "@/constants/dictionaries";
 
 import Button from "@/common/buttons/Button";
 import TextField from "@/common/Inputs/TextField";
@@ -20,7 +23,7 @@ interface Option {
 }
 
 interface SearchFormProps {
-  commonDic: ICommonDic;
+  lang: Locale;
 }
 
 interface FormData {
@@ -29,17 +32,14 @@ interface FormData {
   travelTypeValue: string;
 }
 
-const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
-  const { trainWord, airplaneWord, busWord, searchWord, whenWord, whereWord } =
-    commonDic;
-
+const SearchForm: FC<SearchFormProps> = ({ lang }) => {
   const router = useRouter();
   const pathname = usePathname();
 
   const initialOptions: Option[] = [
-    { value: trainWord },
-    { value: airplaneWord },
-    { value: busWord },
+    { value: dictionary[lang]?.trainWord },
+    { value: dictionary[lang]?.airplaneWord },
+    { value: dictionary[lang]?.busWord },
   ];
 
   const {
@@ -51,7 +51,7 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
     defaultValues: {
       whereValue: "",
       whenValue: "",
-      travelTypeValue: trainWord,
+      travelTypeValue: dictionary[lang]?.trainWord,
     },
   });
 
@@ -77,7 +77,7 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
         register={register}
         type="text"
         name="whereValue"
-        placeholder={whereWord}
+        placeholder={dictionary[lang]?.whereWord}
         inputMode=""
         min={2}
         maxLength={8}
@@ -87,7 +87,7 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
       <DatePickerComponent
         control={control}
         name="whenValue"
-        placeholder={whenWord}
+        placeholder={dictionary[lang]?.whenWord}
         icon={calendarSearchIcon}
       />
 
@@ -108,7 +108,7 @@ const SearchForm: FC<SearchFormProps> = ({ commonDic }) => {
           sizes="100vw"
           className="icon--class me-3"
         />
-        <span>{searchWord}</span>
+        <span>{dictionary[lang]?.searchWord}</span>
       </Button>
     </form>
   );

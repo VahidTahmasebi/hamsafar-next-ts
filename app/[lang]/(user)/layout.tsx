@@ -1,16 +1,15 @@
-import React, { FC, ReactNode } from "react";
+import "../globals.css";
+import vazirFont from "@/constants/localFonts";
+
+import React, { ReactNode } from "react";
 import { Metadata } from "next";
 
 import { Locale, i18n } from "@/i18n.config";
-import { getDictionary } from "@/lib/dictionary";
 import ProvidersTheme from "../ProvidersTheme";
 import Providers from "../Providers";
 
 import Header from "../Header";
 import Footer from "../Footer";
-
-import "../globals.css";
-import vazirFont from "@/constants/localFonts";
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -26,9 +25,7 @@ export async function generateStaticParams(): Promise<{ lang: Locale }[]> {
   return i18n.locales.map((locale: Locale) => ({ lang: locale }));
 }
 
-const RootLayout: FC<RootLayoutProps> = async ({ children, params }) => {
-  const { commonDic, navigationDic } = await getDictionary(params.lang);
-
+const RootLayout: React.FC<RootLayoutProps> = ({ children, params }) => {
   return (
     <html
       lang={params.lang === "en" ? "en" : "fa"}
@@ -38,13 +35,9 @@ const RootLayout: FC<RootLayoutProps> = async ({ children, params }) => {
         <ProvidersTheme>
           <Providers>
             <div className="xl:max-w-7xl container mx-auto px-6">
-              <Header lang={params.lang} navigationDic={navigationDic} />
+              <Header lang={params.lang} />
               <div>{children}</div>
-              <Footer
-                lang={params.lang}
-                navigationDic={navigationDic}
-                commonDic={commonDic}
-              />
+              <Footer lang={params.lang} />
             </div>
           </Providers>
         </ProvidersTheme>
