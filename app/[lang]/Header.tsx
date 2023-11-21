@@ -24,7 +24,7 @@ const Header: FC<HeaderProps> = ({ lang }) => {
   ];
 
   return (
-    <header className="sticky top-2 z-10 flex items-center justify-between gap-x-2 px-5 rounded-3xl bg-c-surface-100/70 backdrop-blur-md shadow-xl shadow-c-surface-600/10 transition-all duration-200">
+    <header className="sticky top-2 z-50 flex items-center justify-between gap-x-2 px-5 mb-10 rounded-3xl bg-c-surface-100/70 backdrop-blur-md shadow-xl shadow-c-surface-600/10 transition-all duration-200">
       <LogoHeader />
       <nav>
         <ul className="h-16 flex justify-start items-center sm:gap-x-5 md:gap-x-16 py-2 font-bold">

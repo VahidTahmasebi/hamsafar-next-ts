@@ -126,7 +126,7 @@ body {
     @apply w-12 h-12;
   }
   .cart--class {
-    @apply absolute space-y-1 text-lg font-bold;
+    @apply absolute space-y-1 font-bold;
   }
   .cart__text--class {
     @apply py-1 px-2 bg-c-main-100/90;

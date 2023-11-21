@@ -15,9 +15,14 @@ interface ProduceContainerProps {
     price: number;
   };
   lang: Locale;
+  containerClass?: string;
 }
 
-const ProduceContainer: FC<ProduceContainerProps> = ({ data, lang }) => {
+const ProduceContainer: FC<ProduceContainerProps> = ({
+  data,
+  lang,
+  containerClass,
+}) => {
   const { picture_url, name, review_scores_rating, price } = data;
 
   return (
@@ -28,7 +33,7 @@ const ProduceContainer: FC<ProduceContainerProps> = ({ data, lang }) => {
         width={0}
         height={0}
         sizes="100vw"
-        className="wh-full--class block rounded-3xl object-cover"
+        className={`${containerClass} w-full h-96 block rounded-3xl object-cover`}
       />
       <div className="cart--class max-w-[7rem] top-4 end-7 text-end">
         <div className="cart__text--class rounded-xl grid place-items-center">

@@ -23,6 +23,7 @@ interface DictionaryEntry {
   aboutWord: string;
   contactWord: string;
   loginSignupWord: string;
+  suggested: string;
 }
 
 export const dictionary: Record<string, DictionaryEntry> = {
@@ -44,6 +45,7 @@ export const dictionary: Record<string, DictionaryEntry> = {
     europeWord: "Europe",
     africaWord: "Africa",
     americanWord: "American",
+    suggested: "Suggested",
     addressWord: "00 Colin P Kelly Jr St San Francisco California 94118",
     copyrightWord: "Copyright © 2023 Hamsafar All rights reserved",
 
@@ -72,6 +74,7 @@ export const dictionary: Record<string, DictionaryEntry> = {
     europeWord: "اروپا",
     africaWord: "آفریقا",
     americanWord: "آمریکا",
+    suggested: "پیشنهاد",
     addressWord:
       "94118 کالیفورنیا سن فرنسیسکو خیابان کالین پرودی کلی جونیور 00",
     copyrightWord: "© کلیه حقوق این سایت محفوظ و متعلق به همسفر است.",
