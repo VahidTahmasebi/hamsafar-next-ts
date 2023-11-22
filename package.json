@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "json-server": "json-server --watch data/db.json --port 8000"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.2",
@@ -15,6 +16,7 @@
     "@types/negotiator": "^0.6.3",
     "axios": "^1.6.0",
     "classnames": "^2.3.2",
+    "json-server": "^0.17.4",
     "negotiator": "^0.6.3",
     "next": "^13.5.6",
     "next-themes": "^0.2.1",
