@@ -25,7 +25,7 @@ const Footer: FC<FooterProps> = ({ lang }) => {
   return (
     <footer className="flex justify-center items-center">
       {/* mobile navbar */}
-      <RouteNavbar />
+      <RouteNavbar lang={lang} />
 
       {/* footer */}
       <div className="w-full mt-20 mb-32 sm:mb-0 rounded-t-3xl rounded-b-3xl sm:rounded-b-none bg-c-surface-200/50">

@@ -8,14 +8,14 @@ import newspaperIcon from "@/public/assets/icons/newspaper-icon.svg";
 import exploreIcon from "@/public/assets/icons/explore-icon.svg";
 import destinationsIcon from "@/public/assets/icons/destinations-icon.svg";
 
-const RouteNavbar = () => {
+const RouteNavbar = ({ lang }) => {
   const router = useRouter();
   const pathname = usePathname();
 
   const routeNavbar = [
-    { value: newspaperIcon, href: "" },
-    { value: exploreIcon, href: "" },
-    { value: destinationsIcon, href: "" },
+    { value: newspaperIcon, href: `/${lang}/blog` },
+    { value: exploreIcon, href: `/` },
+    { value: destinationsIcon, href: `/${lang}/tours` },
   ];
 
   return (
