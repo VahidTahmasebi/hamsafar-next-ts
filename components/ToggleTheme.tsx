@@ -8,14 +8,14 @@ import moonIcon from "@/public/assets/icons/moon-icon.svg";
 import sunIcon from "@/public/assets/icons/sun-icon.svg";
 
 const ToggleTheme: FC = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <button
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="w-8 h-8">
       <Image
-        src={theme === "light" ? moonIcon : sunIcon}
+        src={resolvedTheme === "dark" ? sunIcon : moonIcon}
         alt=""
         width={0}
         height={0}

@@ -8,12 +8,12 @@ import logoSecondDark from "@/public/assets/logo-second-dark.webp";
 import logoSecondLight from "@/public/assets/logo-second-light.webp";
 
 const LogoFooter = () => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <Link className="" href="/">
       <Image
-        src={theme === "dark" ? logoSecondDark : logoSecondLight}
+        src={resolvedTheme === "dark" ? logoSecondDark : logoSecondLight}
         alt="Footer Logo"
         width="0"
         height="0"
