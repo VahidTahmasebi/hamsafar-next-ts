@@ -1,15 +1,21 @@
 "use client";
 
+import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+
+import { Locale } from "@/i18n.config";
 
 import newspaperIcon from "@/public/assets/icons/newspaper-icon.svg";
 import exploreIcon from "@/public/assets/icons/explore-icon.svg";
 import destinationsIcon from "@/public/assets/icons/destinations-icon.svg";
 
-const RouteNavbar = ({ lang }) => {
-  const router = useRouter();
+interface IRouteNavbarProps {
+  lang: Locale;
+}
+
+const RouteNavbar: FC<IRouteNavbarProps> = ({ lang }) => {
   const pathname = usePathname();
 
   const routeNavbar = [
