@@ -16,11 +16,11 @@ interface IBlogProps {
 }
 
 const Blog: FC<IBlogProps> = ({ params: { lang } }) => {
-  const { isLoading, data: hotels } = useGetHotels();
+  const { isLoading, data } = useGetHotels();
 
   return (
-    <div className="">
-      <BlogSidebar lang={lang} hotels={hotels} />
+    <div className="w-full flex justify-center items-center">
+      <BlogSidebar lang={lang} data={data} />
     </div>
   );
 };
