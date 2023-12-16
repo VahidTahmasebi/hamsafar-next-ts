@@ -10,6 +10,20 @@ body {
   font-family: var(--vazir-font);
   min-height: 100vh;
   /* user-select: none; */
+  scrollbar-color: #a6bcd3 #2c3c4e;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #2c3c4e;
+}
+::-webkit-scrollbar-thumb {
+  background: #a6bcd3;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7799b9;
 }
 
 @layer base {
@@ -51,7 +65,7 @@ body {
     --surface-900: 44 60 78; /* #2C3C4E */
     --surface-950: 31 41 55; /* #1F2937 */
     /* CSS LIGHT THEME MAIN COLORS */
-    --main-050: 250 250 250; /* #FAFAFA */
+    --main-50: 250 250 250; /* #FAFAFA */
     --main-100: 239 239 239; /* #EFEFEF */
     --main-200: 220 220 220; /* #DCDCDC */
     --main-300: 189 189 189; /* #BDBDBD */
@@ -132,7 +146,7 @@ body {
     @apply py-1 px-2 bg-c-main-100/90;
   }
   .shadow-navbar--class {
-    @apply shadow-[0px_-5px_20px_-5px_rgba(143,205,152,0.7),0px_5px_20px_-5px_rgba(143,205,152,0.7)];
+    @apply shadow-[0px_0px_3px_4px_#6fb97a4c];
   }
   .cart-container__lazy--class {
     @apply relative rounded-3xl bg-c-surface-400/40 animate-pulse;

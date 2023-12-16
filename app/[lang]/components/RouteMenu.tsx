@@ -20,7 +20,9 @@ const RouteMenu: FC<RouteMenuProps> = ({ routeMenu }) => {
           pathname === route.href;
 
         return (
-          <li key={index} className="hidden sm:block py-2">
+          <li
+            key={index}
+            className="hidden sm:block py-2 hover:text-c-orange-600">
             <Link href={route.href}>
               {route.value}
               {isActive && (
