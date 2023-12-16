@@ -12,7 +12,7 @@ import flagDarkIcon from "@/public/assets/icons/flag-dark-icon.svg";
 export default function LocaleSwitcher() {
   const pathName = usePathname();
 
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const redirectedPathName = (locale: string) => {
     if (!pathName) return "/";
@@ -30,16 +30,18 @@ export default function LocaleSwitcher() {
           <Link
             key={locale}
             href={redirectedPathName(locale)}
-            className={`${isActive && "hidden"} w-9 h-9 relative`}>
+            className={`${
+              isActive && "hidden"
+            } relative flex justify-center items-center w-9 h-9`}>
             <Image
-              src={theme === "dark" ? flagDarkIcon : flagLightIcon}
+              src={resolvedTheme === "dark" ? flagDarkIcon : flagLightIcon}
               alt=""
               width="0"
               height="0"
               sizes="100vw"
-              className="w-7 h-7"
+              className="w-6 h-6"
             />
-            <span className="absolute -bottom-2 left-2 text-sm text-c-primary-950">
+            <span className="absolute top-5 left-3.5 pt-0.5 text-xs text-c-primary-950">
               {locale.toUpperCase()}
             </span>
           </Link>

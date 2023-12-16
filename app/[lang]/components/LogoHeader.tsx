@@ -8,13 +8,13 @@ import logoMainDark from "@/public/assets/logo-main-dark.webp";
 import logoMainLight from "@/public/assets/logo-main-light.webp";
 
 const LogoHeader = () => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <Link className="block py-2" href="/">
       <Image
         priority={true}
-        src={theme === "dark" ? logoMainDark : logoMainLight}
+        src={resolvedTheme === "dark" ? logoMainDark : logoMainLight}
         alt="Home"
         width="0"
         height="0"

@@ -25,7 +25,7 @@ const DatePickerComponent: FC<DatePickerComponentProps> = ({
   placeholder,
   icon,
 }) => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <div className="w-4/6 h-full relative flex justify-center items-center">
@@ -70,7 +70,7 @@ const DatePickerComponent: FC<DatePickerComponentProps> = ({
               containerStyle={{
                 width: "100%",
               }}
-              className={theme === "dark" ? "bg-dark teal" : "teal"}
+              className={resolvedTheme === "dark" ? "bg-dark teal" : "teal"}
               calendarPosition="bottom-right"
               value={value || ""}
               inputClass="w-full p-2 pr-11 outline-none border-2 border-transparent hover:border-2 hover:border-c-primary-600/40 rounded-3xl focus:ring-1 focus:ring-offset-1 focus:ring-c-primary-600 bg-c-surface-50 shadow-sm transition ease-in duration-200"
