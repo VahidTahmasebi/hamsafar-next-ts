@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ChangeEvent } from "react";
 import Image from "next/image";
 
 interface TextFieldProps {
@@ -10,6 +10,7 @@ interface TextFieldProps {
   inputMode?: string;
   icon: string;
   placeholder?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TextField: FC<TextFieldProps> = ({
@@ -21,9 +22,10 @@ const TextField: FC<TextFieldProps> = ({
   maxLength,
   inputMode,
   icon,
+  onChange,
 }) => {
   return (
-    <div className="w-4/6 h-full relative flex items-center">
+    <div className="h-full relative flex items-center">
       <input
         {...register(name)}
         type={type}
@@ -31,6 +33,7 @@ const TextField: FC<TextFieldProps> = ({
         inputMode={inputMode}
         min={min}
         maxLength={maxLength}
+        onChange={onChange}
         className="w-full p-2 pr-11 outline-none border-2 border-transparent hover:border-2 hover:border-c-primary-600/40 rounded-3xl focus:ring-1 focus:ring-offset-1 focus:ring-c-primary-600 bg-c-surface-50 shadow-sm transition ease-in duration-200"
       />
       <span className="absolute right-3">

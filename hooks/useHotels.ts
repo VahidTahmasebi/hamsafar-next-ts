@@ -1,11 +1,14 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import { getAllHotels, getOneHotelsById } from "@/services/hotelServices";
 
 export const useGetHotels = () =>
   useQuery({
     queryKey: ["get-hotels"],
-    queryFn: getAllHotels,
+    queryFn: ({ queryKey }) => {
+      const [, qs, cookies] = queryKey;
+      return getAllHotels(qs, cookies);
+    },
     retry: false,
     refetchOnWindowFocus: true,
   });
