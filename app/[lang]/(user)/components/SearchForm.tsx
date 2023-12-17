@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 
@@ -35,12 +35,12 @@ interface FormData {
   travelTypeValue: string;
 }
 
-const SearchForm: FC<SearchFormProps> = ({ lang }) => {
+const SearchForm: FC<SearchFormProps> = ({ lang }: SearchFormProps) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const [search, setSearch] = useState("");
-  const [filteredTitle, setFilteredTitle] = useState([]);
+  const [search, setSearch] = useState<string>("");
+  const [filteredTitle, setFilteredTitle] = useState<any[]>([]);
 
   const { isLoading, data } = useGetHotels();
 
@@ -69,7 +69,7 @@ const SearchForm: FC<SearchFormProps> = ({ lang }) => {
   useDebounce(
     () => {
       setFilteredTitle(
-        data.filter((item) =>
+        data?.filter((item: any) =>
           item.name.toLowerCase().includes(search.toLowerCase())
         )
       );
@@ -78,11 +78,7 @@ const SearchForm: FC<SearchFormProps> = ({ lang }) => {
     1200
   );
 
-  const onFormSubmit = async (values: {
-    whereValue: string;
-    whenValue: any;
-    travelTypeValue: string;
-  }) => {
+  const onFormSubmit = async (values: FormData) => {
     if (pathname === "/search") {
       router.back();
     } else {
@@ -108,11 +104,13 @@ const SearchForm: FC<SearchFormProps> = ({ lang }) => {
         />
         <div className="w-full h-fit max-h-56 absolute top-10 z-50 px-3 divide-y-2 divide-c-surface-300 rounded-xl bg-c-surface-100 overflow-hidden overflow-y-auto">
           {search &&
-            filteredTitle.map((item) => (
+            filteredTitle.map((item: any) => (
               <div
                 key={item.id}
                 onClick={() => setValue("whereValue", item.name)}>
-                <p className="py-2 text-xs text-c-surface-950">{item.name}</p>
+                <p className="py-2 text-xs line-clamp-2 text-c-surface-950 cursor-pointer">
+                  {item.name}
+                </p>
               </div>
             ))}
         </div>
